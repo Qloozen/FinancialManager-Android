@@ -22,11 +22,12 @@ import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.example.financialmanager_android.R
 import com.example.financialmanager_android.ui.theme.MainPurple
 
 @Composable
-fun RegisterScreen(viewModel: RegisterViewModel = RegisterViewModel()) {
+fun RegisterScreen(viewModel: RegisterViewModel = RegisterViewModel(), navController: NavHostController) {
     val firstNameState = viewModel.firstNameState.observeAsState("")
     val lastNameState = viewModel.lastNameState.observeAsState("")
     val emailState = viewModel.emailState.observeAsState("")
@@ -150,7 +151,12 @@ fun RegisterScreen(viewModel: RegisterViewModel = RegisterViewModel()) {
 
                         Row(modifier = Modifier.padding(20.dp)) {
                             Text(text = "Do you have an account? ")
-                            Text(text = "Log in", color = MaterialTheme.colors.MainPurple)
+                            Text(text = "Log in",
+                                color = MaterialTheme.colors.MainPurple,
+                                modifier = Modifier.clickable {
+                                    navController.navigate("login_screen")
+                                }
+                            )
                         }
                     }
                 }
@@ -219,10 +225,4 @@ fun InputField(
             visualTransformation = if(keyboardType == KeyboardType.Password && !passwordVisibility) {PasswordVisualTransformation()} else VisualTransformation.None
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun Preview() {
-    RegisterScreen()
 }
