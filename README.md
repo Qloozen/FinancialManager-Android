@@ -13,3 +13,9 @@ As user you will be able to:
 - Jetpack Compose toolkit
 - MVVM architecture
 
+# Design
+### Created in Adobe XD
+<img src="https://github.com/Qloozen/FinancialManager-Android/blob/master/Design/Login.png">
+<img src="https://github.com/Qloozen/FinancialManager-Android/blob/master/Design/Register.png">
+<img src="https://github.com/Qloozen/FinancialManager-Android/blob/master/Design/Home.png">
+<img src="https://github.com/Qloozen/FinancialManager-Android/blob/master/Design/Create.png">
