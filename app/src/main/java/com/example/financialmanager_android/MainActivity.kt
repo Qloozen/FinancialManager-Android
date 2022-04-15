@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun MainNavigation() {
         val navController = rememberNavController()
-        NavHost(navController = navController, startDestination = "subscription_screen") {
+        NavHost(navController = navController, startDestination = "register_screen") {
             composable("register_screen") {
                 RegisterScreen(navController = navController)
             }

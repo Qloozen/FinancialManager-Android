@@ -165,6 +165,7 @@ fun RegisterScreen(viewModel: RegisterViewModel = RegisterViewModel(), navContro
     }
 }
 
+// Generic input field with an label, leading icon
 @Composable
 fun InputField(
     title: String,

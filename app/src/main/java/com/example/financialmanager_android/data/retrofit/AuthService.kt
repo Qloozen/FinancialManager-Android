@@ -7,6 +7,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.Body
 import retrofit2.http.POST
 
+// Defining the connection to the REST API. Service will be used in the repository
 class AuthService {
     private var client: AuthEndpoints
 
@@ -18,6 +19,7 @@ class AuthService {
 
         client = retrofit.create(AuthEndpoints::class.java)
     }
+
 
     suspend fun register(body: RegisterBody): RegisterResponse {
         return client.register(body);
