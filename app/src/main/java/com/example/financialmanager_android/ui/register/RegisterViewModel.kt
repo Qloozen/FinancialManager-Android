@@ -18,8 +18,10 @@ class RegisterViewModel(private val authRepo: AuthRepo = AuthRepo.getInstance())
             val email = emailState.value!!.trim().lowercase()
             val password = passwordState.value
             val body = RegisterBody(firstName = firstName, lastName = lastName, email = email, password = password!!)
-            viewModelScope.launch(Dispatchers.IO) {
-                val res = authRepo.register(body);
+
+            // This is a coroutine, for handling async tasks. ViewModelScope will keep the coroutine alive as long as the ViewModel
+            viewModelScope.launch(Dispatchers.IO) { // IO = thread for networking/data, main = thread for UI, default = thread for CPU tasks
+                val res = authRepo.register(body); // Executing API task
             }
         }
     }
